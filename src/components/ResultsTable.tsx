@@ -24,6 +24,13 @@ export const ResultsTable = ({ results, frequencies, gameName }: ResultsTablePro
 
   const formatDate = (dateString: string) => {
     try {
+      // A API da Caixa retorna datas no formato DD/MM/YYYY
+      if (dateString && dateString.includes('/')) {
+        const [day, month, year] = dateString.split('/');
+        const date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+        return date.toLocaleDateString('pt-BR');
+      }
+      // Fallback para outros formatos
       const date = new Date(dateString);
       return date.toLocaleDateString('pt-BR');
     } catch {
