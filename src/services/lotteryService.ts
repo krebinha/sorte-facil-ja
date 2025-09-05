@@ -24,7 +24,17 @@ export const fetchLatestResult = async (gameId: string): Promise<LotteryResult |
     if (!response.ok) throw new Error('Erro ao buscar resultado');
     
     const data = await response.json();
-    return data;
+    
+    // Mapeia os dados da API para a estrutura esperada
+    return {
+      concurso: data.numero,
+      data: data.dataApuracao,
+      dezenas: data.listaDezenas || [],
+      acumulou: data.acumulado,
+      valorAcumuladoProximoConcurso: data.valorAcumuladoProximoConcurso,
+      valorAcumuladoConcursoEspecial: data.valorAcumuladoConcursoEspecial,
+      valorEstimadoProximoConcurso: data.valorEstimadoProximoConcurso
+    };
   } catch (error) {
     console.error('Erro ao buscar último resultado:', error);
     return null;
@@ -50,7 +60,20 @@ export const fetchHistoryResults = async (gameId: string): Promise<LotteryResult
       if (concursoNumber > 0) {
         promises.push(
           fetch(`${BASE_URL}/${game.apiUrl}/${concursoNumber}`)
-            .then(res => res.ok ? res.json() : null)
+            .then(res => {
+              if (res.ok) {
+                return res.json().then(data => ({
+                  concurso: data.numero,
+                  data: data.dataApuracao,
+                  dezenas: data.listaDezenas || [],
+                  acumulou: data.acumulado,
+                  valorAcumuladoProximoConcurso: data.valorAcumuladoProximoConcurso,
+                  valorAcumuladoConcursoEspecial: data.valorAcumuladoConcursoEspecial,
+                  valorEstimadoProximoConcurso: data.valorEstimadoProximoConcurso
+                }));
+              }
+              return null;
+            })
             .catch(() => null)
         );
       }
