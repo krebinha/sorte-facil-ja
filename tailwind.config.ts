@@ -52,6 +52,14 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				lottery: {
+					gold: 'hsl(var(--lottery-gold))',
+					'gold-foreground': 'hsl(var(--lottery-gold-foreground))',
+					frequent: 'hsl(var(--lottery-frequent))',
+					'frequent-foreground': 'hsl(var(--lottery-frequent-foreground))',
+					rare: 'hsl(var(--lottery-rare))',
+					'rare-foreground': 'hsl(var(--lottery-rare-foreground))',
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',

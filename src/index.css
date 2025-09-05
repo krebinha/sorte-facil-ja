@@ -8,7 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 218 23% 97%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -17,8 +17,8 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 142 76% 36%;
+    --primary-foreground: 0 0% 98%;
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -26,15 +26,35 @@ All colors MUST be HSL.
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 142 69% 58%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: 142 76% 36%;
+
+    /* Lottery specific colors */
+    --lottery-gold: 45 100% 50%;
+    --lottery-gold-foreground: 222.2 84% 4.9%;
+    --lottery-frequent: 142 76% 36%;
+    --lottery-frequent-foreground: 0 0% 98%;
+    --lottery-rare: 220 14% 71%;
+    --lottery-rare-foreground: 222.2 84% 4.9%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(142 76% 36%), hsl(142 69% 58%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 40% 98%));
+    --gradient-number: linear-gradient(135deg, hsl(142 76% 36%), hsl(45 100% 50%));
+    
+    /* Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(142 76% 36% / 0.2);
+    --shadow-card: 0 4px 12px -2px hsl(222.2 84% 4.9% / 0.1);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --radius: 0.5rem;
 
